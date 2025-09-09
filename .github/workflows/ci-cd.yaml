@@ -27,5 +27,5 @@ jobs:
                 IMAGE_NAME=${{ secrets.DOCKERHUB_USERNAME }}/wisecow:$IMAGE_TAG
                 
                 echo "Building and pushing image: $IMAGE_NAME"
-                docker build -t $IMAGE_NAME .
+                docker build -t $IMAGE_NAME -f problem-statement-1/Dockerfile problem-statement-1/
                 docker push $IMAGE_NAME
