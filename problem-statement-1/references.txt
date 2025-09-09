@@ -1,0 +1,24 @@
+1. Created dockerimage but got error:
+    https://stackoverflow.com/questions/46142861/running-netcat-inside-docker-container
+    https://stackoverflow.com/questions/70236670/debian-frontend-noninteractive-not-working-inside-shell-script-with-apt-get
+    /usr/bin/env: 'bash\r': No such file or directory
+    /usr/bin/env: use -[v]S to pass options in shebang lines
+
+2. Solve that error:
+    https://stackoverflow.com/questions/29045140/env-bash-r-no-such-file-or-directory
+    Quick command for converting line ending:
+    (Run this command in Git Bash)
+    dos2unix thescript.sh
+
+3. https://stackoverflow.com/questions/35594987/how-to-force-docker-for-a-clean-build-of-an-image
+    Clean no cache docker image
+
+4. docker build --debug --no-cache -t a7ryan/wisecow:v1 -f Dockerfile .
+
+5. Still Error checkout the GitHub PR: https://github.com/nyrahul/wisecow/pull/14
+
+6. Not Worked:
+    curl localhost:4499
+    curl: (56) Recv failure: Connection was aborted
+
+7. Installed: netcat-openbsd
