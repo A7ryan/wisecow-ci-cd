@@ -30,6 +30,9 @@ jobs:
                 docker build -t $IMAGE_NAME -f problem-statement-1/Dockerfile problem-statement-1/
                 docker push $IMAGE_NAME
                 
+                echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+
+                
             - name: Azure Login
               uses: azure/login@v1
               with:
@@ -44,5 +47,5 @@ jobs:
             - name: Deploy to AKS
               run: |
                 echo "Deploying image: $IMAGE_NAME"
-                kubectl set image deployment/wisecow wisecow=$IMAGE_NAME --record
+                kubectl set image deployment/wisecow wisecow=$IMAGE_NAME
                 kubectl rollout status deployment/wisecow
