@@ -17,10 +17,11 @@ spec:
         image: a7ryan/wisecow:v3
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 4499
+            memory: "64Mi"
+            cpu: "250m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
 
 ---
 
