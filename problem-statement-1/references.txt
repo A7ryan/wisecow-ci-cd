@@ -29,6 +29,11 @@
   unless explicitly told to listen on all interfaces (0.0.0.0).
 
 
+9. Each Request is served only 1 at a time
+  - Container starts, listens -> port 4499 using nc
+  - The HTTP request never completes or times out.
+  - This site can't be reached: ERR_CONNECTION_TIMED_OUT.
+
 ---
 
 az ad sp create-for-rbac --name "<NAME>" \
