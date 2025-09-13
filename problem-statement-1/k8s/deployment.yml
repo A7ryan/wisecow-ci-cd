@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: wisecow
-        image: a7ryan/wisecow:v1
+        image: a7ryan/wisecow:v3
         resources:
           limits:
-            memory: "64Mi"
-            cpu: "250m"
+            memory: "128Mi"
+            cpu: "500m"
         ports:
         - containerPort: 4499
 

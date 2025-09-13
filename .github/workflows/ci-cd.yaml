@@ -29,3 +29,20 @@ jobs:
                 echo "Building and pushing image: $IMAGE_NAME"
                 docker build -t $IMAGE_NAME -f problem-statement-1/Dockerfile problem-statement-1/
                 docker push $IMAGE_NAME
+                
+            - name: Azure Login
+              uses: azure/login@v1
+              with:
+                creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+            - name: Set AKS Context
+              uses: azure/aks-set-context@v3
+              with:
+                resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
+                cluster-name: ${{ secrets.AZURE_AKS_CLUSTER }}
+        
+            - name: Deploy to AKS
+              run: |
+                echo "Deploying image: $IMAGE_NAME"
+                kubectl set image deployment/wisecow wisecow=$IMAGE_NAME --record
+                kubectl rollout status deployment/wisecow

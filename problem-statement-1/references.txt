@@ -22,3 +22,30 @@
     curl: (56) Recv failure: Connection was aborted
 
 7. Installed: netcat-openbsd
+
+
+
+
+---
+
+az ad sp create-for-rbac --name "<NAME>" \
+  --role contributor \
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RG> \
+  --sdk-auth
+
+Find SUBSCRIPTION_ID
+az account list --output table
+
+
+{
+  "clientId": "",
+  "clientSecret": "",
+  "subscriptionId": "",
+  "tenantId": "",
+  "activeDirectoryEndpointUrl": "",
+  "resourceManagerEndpointUrl": "",
+  "activeDirectoryGraphResourceId": "",
+  "sqlManagementEndpointUrl": "",
+  "galleryEndpointUrl": "",
+  "managementEndpointUrl": ""
+}
