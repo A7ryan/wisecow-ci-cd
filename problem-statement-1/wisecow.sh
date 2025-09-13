@@ -42,11 +42,7 @@ main() {
 	echo "Wisdom served on port=$SRVPORT..."
 
 	while true; do
-    # Serve one request at a time
-		{ 
-			read request
-			echo -e "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<pre>$(cowsay "$(fortune)")</pre>" 
-		} | nc -l -p $SRVPORT -q 1
+		handleRequest | nc -l -s 0.0.0.0 -p $SRVPORT -q 1
 	done
 }
 

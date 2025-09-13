@@ -24,6 +24,9 @@
 7. Installed: netcat-openbsd
 
 
+8. Updated wisecow.sh
+  - Bydefault, nc (netcat) binds only to localhost 
+  unless explicitly told to listen on all interfaces (0.0.0.0).
 
 
 ---
