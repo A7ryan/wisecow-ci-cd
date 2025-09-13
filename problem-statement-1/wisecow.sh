@@ -21,7 +21,10 @@ HTTP/1.1 200
 Content-Type: text/html
 
 
-<h1>🐄 Wisecow Says:</h1><pre>`cowsay $mod`</pre>
+<pre>
+<h1>🐄 Wisecow Says:</h1>
+`cowsay $mod`
+</pre>
 EOF
 }
 
