@@ -42,8 +42,9 @@ main() {
 	echo "Wisdom served on port=$SRVPORT..."
 
 	while true; do
-		handleRequest | nc -l -s 0.0.0.0 -p $SRVPORT -q 1
+		nc -l -s 0.0.0.0 -p $SRVPORT -q 1 < <(handleRequest)
 	done
+
 }
 
 main
