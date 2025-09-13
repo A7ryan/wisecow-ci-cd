@@ -42,8 +42,7 @@ main() {
 	echo "Wisdom served on port=$SRVPORT..."
 
 	while true; do
-		# Listen and handle each connection individually
-		nc -l -s 0.0.0.0 -p $SRVPORT -q 1 < <(handleRequest)
+		handleRequest | nc -l -s 0.0.0.0 -p $SRVPORT -q 1
 	done
 }
 
