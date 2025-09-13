@@ -17,11 +17,12 @@ spec:
         image: a7ryan/wisecow:v3
         resources:
           limits:
-            memory: "64Mi"
+            memory: "256Mi"
             cpu: "250m"
           requests:
-            memory: "64Mi"
+            memory: "128Mi"
             cpu: "250m"
+
 
 ---
 
