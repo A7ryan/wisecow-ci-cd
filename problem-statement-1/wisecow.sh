@@ -18,13 +18,9 @@ handleRequest() {
 
 cat <<EOF > $RSPFILE
 HTTP/1.1 200
-Content-Type: text/html
 
 
-<pre>
-<h1>🐄 Wisecow Says:</h1>
-`cowsay $mod`
-</pre>
+<pre>`cowsay $mod`</pre>
 EOF
 }
 
@@ -41,10 +37,10 @@ main() {
 	prerequisites
 	echo "Wisdom served on port=$SRVPORT..."
 
-	while true; do
+	while [ 1 ]; do
 		nc -l -s 0.0.0.0 -p $SRVPORT -q 1 < <(handleRequest)
+		sleep 0.01
 	done
-
 }
 
 main
